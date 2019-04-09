@@ -2,7 +2,7 @@
 Sample App demonstrating Clean Architecture using MVI Design Pattern written in Kotlin
 
 #### Features:
-1. Single View Application using Conductor framework
+1. Single Activity Application using Conductor framework
 2. MVI Design Pattern 
 2. Dependency Injection with Dagger and Dagger Android
 3. Espresso Tests using Testing Robot pattern
