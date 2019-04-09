@@ -1,0 +1,14 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    def dependency = rootProject.ext.dependency
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dependency.kotlin
+    implementation dependency.javaxInject
+    implementation dependency.rxKotlin
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

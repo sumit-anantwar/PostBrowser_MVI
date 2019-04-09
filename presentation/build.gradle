@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def buildConfig = rootProject.ext.build_config
+
+    compileSdkVersion buildConfig.compileSdkVersion
+    defaultConfig {
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdkVersion
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+
+    def dependency = rootProject.ext.dependency
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':mvi')
+    implementation project(':repository')
+    implementation project(':repository-local')
+    implementation project(':repository-network')
+
+    implementation dependency.kotlin
+
+    implementation dependency.lifecycle
+    implementation dependency.appCompat
+
+    // Rx
+    implementation dependency.rxKotlin
+    implementation dependency.javaxInject
+
+    // Timber
+    implementation dependency.timber
+
+
+    // Tests
+    testImplementation dependency.junit
+    testImplementation dependency.mockitoKotlin
+    testImplementation project(path: ':repository-network', configuration: 'testClasses')
+    kaptTest dependency.daggerCompiler
+}

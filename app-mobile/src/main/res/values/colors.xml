@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#700094</color>
+    <color name="colorPrimaryDark">#440058</color>
+    <color name="colorAccent">#580074</color>
+
+    <color name="transparent">#0000</color>
+    <color name="gray">#AAA</color>
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+
+    <color name="cell_odd">#FFF</color>
+    <color name="cell_even">#EBE3EC</color>
+
+</resources>

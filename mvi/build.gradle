@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def buildConfig = rootProject.ext.build_config
+
+    compileSdkVersion buildConfig.compileSdkVersion
+    defaultConfig {
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdkVersion
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+
+    def dependency = rootProject.ext.dependency
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation dependency.kotlin
+
+    implementation dependency.lifecycle
+    implementation dependency.appCompat
+    implementation dependency.daggerAndroid
+    implementation dependency.conductor
+
+    // Rx
+    implementation dependency.rxKotlin
+
+    // Timber
+    implementation dependency.timber
+
+    // ButterKnife
+    implementation dependency.butterKnife
+    kapt dependency.butterKnifeCompiler
+}

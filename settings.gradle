@@ -1,0 +1,1 @@
+include ':app-mobile', ':mvi', ':repository', ':repository-local', ':repository-network', ':presentation'

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.sumitanantwar.postsbrowser.mobile.util.RoundedImageView
+            android:id="@+id/image_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/transparent"
+            app:corner_radius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_post_id"
+            style="@style/TextViewPostId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_profile"
+            app:layout_constraintEnd_toEndOf="@+id/image_profile"
+            app:layout_constraintStart_toStartOf="@+id/image_profile"
+            app:layout_constraintTop_toBottomOf="@+id/image_profile" />
+
+        <TextView
+            android:id="@+id/text_post_title"
+            style="@style/PostTitle"
+            android:text="Multiline\nTitle\nText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_profile"
+            app:layout_constraintTop_toTopOf="@+id/image_profile" />
+
+        <TextView
+            android:id="@+id/text_username"
+            style="@style/TextViewUser"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="Username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_post_title"
+            app:layout_constraintStart_toStartOf="@+id/text_post_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_post_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_post_body"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="12dp"
+        android:textSize="17sp"
+        android:text="Some Text"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_container"
+        app:layout_constraintBottom_toTopOf="@id/text_comment_count"/>
+
+    <TextView
+        android:id="@+id/text_comment_count"
+        style="@style/PostCellTitle"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:padding="12dp"
+        android:background="@color/cell_even"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_post_body" />
+
+    <ProgressBar
+        android:id="@+id/progress_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_comment_count"
+        app:layout_constraintEnd_toEndOf="@+id/text_comment_count"
+        app:layout_constraintStart_toStartOf="@+id/text_comment_count"
+        app:layout_constraintTop_toTopOf="@+id/text_comment_count"
+        tools:visibility="gone" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

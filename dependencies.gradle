@@ -1,0 +1,134 @@
+ext {
+    //=== Build Config ===
+    build_config = [
+            package          : "com.sumitanantwar.postsbrowser_mvi.mobile",
+            compileSdkVersion: 28,
+            targetSdkVersion : 28,
+            minSdkVersion    : 19,
+    ]
+
+    //=== App Version generator ===
+    app_ver = [
+            major: 0,
+            minor: 0,
+            patch: 0,
+            build: 1
+    ]
+
+    versionCode = app_ver.major * 1000000 + app_ver.minor * 10000 + app_ver.patch * 100 + app_ver.build
+    versionName = "$app_ver.major.$app_ver.minor.$app_ver.patch"
+
+    //=== Dependency Versions ===
+    version = [
+            kotlinx_coroutines  : "1.1.1",
+            core                : "1.1.0-alpha05",
+            legacy_support      : "1.0.0",
+            appCompat           : "1.1.0-alpha03",
+            lifecycle           : "2.0.0",
+            recycler            : "1.1.0-alpha03",
+            material            : "1.1.0-alpha05",
+            navigation          : "2.1.0-alpha01",
+            constraint_layout   : "2.0.0-alpha3",
+            timber              : "4.7.1",
+            butterknife         : "10.1.0",
+            retrofit            : "2.5.0",
+            okhttp              : "3.9.1",
+            gson                : "2.8.5",
+            moshi               : "1.8.0",
+            glide               : "4.8.0",
+            rxjava              : "2.2.5",
+            rxandroid           : "2.1.0",
+            rxkotlin            : "2.3.0",
+            rxbindings          : "2.2.0",
+            dagger              : "2.22.1",
+            guava               : "23.0",
+            javax_annotation    : "1.0",
+            javax_inject        : "1",
+            stetho              : "1.5.0",
+            lottie              : "3.0.0",
+            xml_font_views      : "0.0.5",
+            conductor           : "2.1.5",
+
+            // Tests
+            junit               : "4.12",
+            mockito_kotlin      : "2.1.0",
+            mockito_android     : "2.24.5",
+            robolectric         : "3.8",
+            test_runner         : "1.1.2-alpha02",
+            test_rules          : '1.1.2-alpha02',
+            espresso            : "3.2.0-alpha02",
+    ]
+
+    //=== Dependency Groups ===
+
+    dependency = [
+
+            // Kotlin
+            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+
+            // AndroidX
+            andxCore            : "androidx.core:core-ktx:$version.core",
+            appCompat           : "androidx.appcompat:appcompat:$version.appCompat",
+            lifecycle           : "androidx.lifecycle:lifecycle-extensions:$version.lifecycle",
+            recycler            : "androidx.recyclerview:recyclerview:$version.recycler",
+            constraintLayout    : "androidx.constraintlayout:constraintlayout:$version.constraint_layout",
+            material            : "com.google.android.material:material:$version.material",
+
+            // Timber
+            timber              : "com.jakewharton.timber:timber:$version.timber",
+
+            // ButterKnife
+            butterKnife         : "com.jakewharton:butterknife:$version.butterknife",
+            butterKnifeCompiler : "com.jakewharton:butterknife-compiler:$version.butterknife",
+
+            // RxJava
+            rxJava              : "io.reactivex.rxjava2:rxjava:$version.rxjava",
+            rxAndroid           : "io.reactivex.rxjava2:rxandroid:$version.rxandroid",
+            rxKotlin            : "io.reactivex.rxjava2:rxkotlin:$version.rxkotlin",
+            rxBindings          : "com.jakewharton.rxbinding2:rxbinding:$version.rxbindings",
+
+            // Glide
+            glide               : "com.github.bumptech.glide:glide:$version.glide",
+            glideCompiler       : "com.github.bumptech.glide:compiler:$version.glide",
+
+            // Dagger
+            dagger              : "com.google.dagger:dagger:$version.dagger",
+            daggerCompiler      : "com.google.dagger:dagger-compiler:$version.dagger",
+            daggerAndroid       : "com.google.dagger:dagger-android-support:$version.dagger",
+            daggerProcessor     : "com.google.dagger:dagger-android-processor:$version.dagger",
+            javaxAnnotation     : "javax.annotation:jsr250-api:$version.javax_annotation",
+            javaxInject         : "javax.inject:javax.inject:$version.javax_inject",
+
+            // Retrofit
+            moshi               : "com.squareup.moshi:moshi:$version.moshi",
+            gson                : "com.google.code.gson:gson:$version.gson",
+            retrofit            : "com.squareup.retrofit2:retrofit:$version.retrofit",
+            retrofitAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$version.retrofit",
+            moshiConverter      : "com.squareup.retrofit2:converter-moshi:$version.retrofit",
+            gsonConverter       : "com.squareup.retrofit2:converter-gson:$version.retrofit",
+            okHttpAndroid       : "com.squareup.okhttp3:okhttp-android-support:$version.okhttp",
+            okHttpLogger        : "com.squareup.okhttp3:logging-interceptor:$version.okhttp",
+
+            // Stetho
+            stetho              : "com.facebook.stetho:stetho:$version.stetho",
+            okHttpStetho        : "com.facebook.stetho:stetho-okhttp3:$version.stetho",
+
+            // Lottie
+            lottie              : "com.airbnb.android:lottie:$version.lottie",
+
+            // Conductor
+            conductor           : "com.bluelinelabs:conductor-support:$version.conductor",
+            conductorLifecycle  : "com.bluelinelabs:conductor-rxlifecycle2:$version.conductor",
+            conductorAutoDispose: "com.bluelinelabs:conductor-autodispose:$version.conductor",
+
+            // Tests
+            junit               : "junit:junit:${version.junit}",
+            mockitoKotlin       : "com.nhaarman.mockitokotlin2:mockito-kotlin:${version.mockito_kotlin}",
+            mockitoAndroid      : "org.mockito:mockito-android:${version.mockito_android}",
+            testRunner          : "androidx.test:runner:${version.test_runner}",
+            testRules           : "androidx.test:rules:${version.test_rules}",
+            espressoCore        : "androidx.test.espresso:espresso-core:${version.espresso}",
+            espressoIntents     : "androidx.test.espresso:espresso-intents:${version.espresso}",
+            espressoContrib     : "androidx.test.espresso:espresso-contrib:${version.espresso}",
+    ]
+}

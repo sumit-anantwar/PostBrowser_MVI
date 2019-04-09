@@ -1,0 +1,150 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
+// Fabric
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+}
+
+
+android {
+    def buildConfig = rootProject.ext.build_config
+
+    compileSdkVersion buildConfig.compileSdkVersion
+    defaultConfig {
+        applicationId buildConfig.package
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdkVersion
+        versionCode versionCode
+        versionName versionName
+        testInstrumentationRunner "com.sumitanantwar.postsbrowser.mobile.testapp.TestRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    def dependency = rootProject.ext.dependency
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':mvi')
+    implementation project(':presentation')
+    implementation project(':repository')
+    implementation project(':repository-local')
+    implementation project(':repository-network')
+
+
+    // Crashlytics
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true;
+    }
+
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+    implementation "com.github.IVIanuu.Contributer:contributer-conductor:1.0.0"
+
+    // Kotlin
+    implementation dependency.kotlin
+
+    // AndroidX
+    implementation dependency.appCompat
+    implementation dependency.material
+    implementation dependency.constraintLayout
+    implementation dependency.lifecycle
+
+    // Conductor
+    implementation dependency.conductor
+    implementation dependency.conductorLifecycle
+    implementation dependency.conductorAutoDispose
+
+    // RxJava
+    implementation dependency.rxAndroid
+    implementation dependency.rxKotlin
+    implementation dependency.rxBindings
+
+    // Timber
+    implementation dependency.timber
+
+    // ButterKnife
+    implementation dependency.butterKnife
+    kapt dependency.butterKnifeCompiler
+
+    implementation dependency.gson
+
+    // Glide
+    implementation dependency.glide
+    kapt dependency.glideCompiler
+
+    // Stetho
+    implementation dependency.stetho
+    implementation dependency.okHttpStetho
+
+    // Lottie
+    implementation dependency.lottie
+
+    // Dagger
+    implementation dependency.dagger
+    kapt dependency.daggerCompiler
+    implementation dependency.daggerAndroid
+    kapt dependency.daggerProcessor
+    compileOnly dependency.javaxAnnotation
+
+    // Tests
+    testImplementation project(path: ':repository-network', configuration: 'testClasses')
+    androidTestImplementation project(path: ':repository-network', configuration: 'testClasses')
+
+    androidTestImplementation dependency.junit
+    androidTestImplementation dependency.mockitoAndroid
+    androidTestImplementation dependency.mockitoKotlin
+    androidTestImplementation 'com.linkedin.testbutler:test-butler-library:2.0.0'
+    androidTestImplementation (dependency.testRunner) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation (dependency.testRules) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation (dependency.espressoCore) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation (dependency.espressoIntents) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation (dependency.espressoContrib) {
+        exclude module: 'appcompat'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+        exclude module: 'support-v13'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'design'
+    }
+
+    kaptTest dependency.daggerCompiler
+    kaptAndroidTest dependency.daggerCompiler
+}

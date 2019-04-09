@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PostsBrowser_MVI.iml" filepath="$PROJECT_DIR$/PostsBrowser_MVI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-mobile/app-mobile.iml" filepath="$PROJECT_DIR$/app-mobile/app-mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvi/mvi.iml" filepath="$PROJECT_DIR$/mvi/mvi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repository/repository.iml" filepath="$PROJECT_DIR$/repository/repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repository-local/repository-local.iml" filepath="$PROJECT_DIR$/repository-local/repository-local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repository-network/repository-network.iml" filepath="$PROJECT_DIR$/repository-network/repository-network.iml" />
+    </modules>
+  </component>
+</project>

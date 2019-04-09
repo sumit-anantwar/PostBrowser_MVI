@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Posts Browser</string>
+
+
+    <string name="cd_logo_image">Logo Image</string>
+
+    <string name="label_filter">Filter</string>
+    <string name="label_userid">User Id</string>
+    <string name="label_title">Title</string>
+    <string name="label_body">Body</string>
+
+    <string name="error_fetching_posts">Error Fetching Posts.\nPull Down to Retry</string>
+    <string name="error_empty_posts">No Posts matching filter.\nPlease try different filter values</string>
+    <string name="title_posts_list">Posts List</string>
+
+</resources>

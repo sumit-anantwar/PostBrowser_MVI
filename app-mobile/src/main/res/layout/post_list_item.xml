@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <com.sumitanantwar.postsbrowser.mobile.util.RoundedImageView
+        android:id="@+id/image_profile"
+        app:corner_radius="15dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/text_post_id"
+        style="@style/PostCellId"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:text="999"
+        app:layout_constraintBottom_toBottomOf="@+id/image_profile"
+        app:layout_constraintEnd_toEndOf="@+id/image_profile"
+        app:layout_constraintStart_toStartOf="@+id/image_profile"
+        app:layout_constraintTop_toBottomOf="@+id/image_profile" />
+
+    <TextView
+        android:id="@+id/text_post_title"
+        style="@style/PostCellTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="30dp"
+        android:text="Post Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_profile"
+        app:layout_constraintTop_toTopOf="@+id/image_profile" />
+
+    <TextView
+        android:id="@+id/text_userid_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PostCellUserId"
+        android:text="User Id: "
+        app:layout_constraintStart_toStartOf="@+id/text_post_title"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_post_title"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_userid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PostCellUserId"
+        android:text="100"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_post_title"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/text_userid_label"
+        android:layout_marginStart="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
